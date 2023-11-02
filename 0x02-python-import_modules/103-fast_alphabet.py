@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-start, end = ord('A'), ord('Z')
-print(*[chr(x) for x in range(start, end + 1)], sep='', end='\n')
+import functools
+print(functools.reduce(lambda a, b: a + b, [chr(c) for c in range(65, 91)]))

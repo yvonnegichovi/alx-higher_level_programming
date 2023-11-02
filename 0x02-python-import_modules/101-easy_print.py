@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-exec("".join(['print("#pythoniscool")']))
+__import__('os').system('echo "#pythoniscool"')

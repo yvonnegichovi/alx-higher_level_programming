@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-import functools
-print(functools.reduce(lambda a, b: a + b, [chr(c) for c in range(65, 91)]))
+from string import ascii_uppercase
+print(ascii_uppercase)

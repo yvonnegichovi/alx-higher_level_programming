@@ -9,14 +9,9 @@ class Square:
         """The init method is used to initialize the definition of square
 
         uses Private instance attribute size and try and exception method"""
-        try:
-            if not isinstance(size, int):
-                raise TypeError("size must be an integer")
-            elif size < 0:
-                raise ValueError("size must be >= 0")
-            else:
-                self.__size = size
-        except TypeError as te:
-            print(te)
-        except ValueError as ve:
-            print(ve)
+        if type(size) is not int:
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = size

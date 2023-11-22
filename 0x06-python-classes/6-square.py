@@ -4,7 +4,24 @@
 
 
 class Square:
-    """This class defines the fields and methods of Square class"""
+    """This class defines the fields and methods of Square class
+
+    private instance attributes:
+        size: size of the square
+        position: postion of the sizes
+
+    public instance methods:
+        def area(self): returns the current square area
+        def my_print(self): prints the square using '#' character
+
+    properties:
+        def size(self): to retrieve it
+        def size(self, value): to set it
+        def position(self): to retrieve it
+        def position(self, value):
+
+    Instantiation:
+        def __init__(self, size=0, position=(0, 0))"""
 
     def __init__(self, size=0, position=(0, 0)):
         """This method iinitializes size and position objects"""

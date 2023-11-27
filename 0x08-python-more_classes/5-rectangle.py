@@ -89,3 +89,4 @@ if __name__ == "__main__":
     def __del__(self):
         """This instance deletes an instance of Rectangle"""
         print("Bye rectangle...")
+        del Rectangle

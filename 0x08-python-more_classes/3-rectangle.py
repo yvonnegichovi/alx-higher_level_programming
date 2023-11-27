@@ -74,4 +74,7 @@ class Rectangle:
         """This str method prints the rectangle with the character #"""
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join(['#' * self.width for _ in range(self.height)])
+        rect_str = ""
+        for i in range(self.__height):
+            rect_str += "#" * self.__width + "\n"
+        return rect_str.rstrip("\n")

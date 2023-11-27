@@ -9,7 +9,7 @@ class Rectangle:
     private instance attributes:
         1. width
         2. height
-    
+
     property:
         1. def width(self): to retrieve it
         2. def height(self): to retrieve it
@@ -23,8 +23,8 @@ class Rectangle:
     """
     def __init__(self, width=0, height=0):
         """method: init that initializes width and height instance"""
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):

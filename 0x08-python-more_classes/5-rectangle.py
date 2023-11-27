@@ -84,9 +84,6 @@ class Rectangle:
         to be able to rectreate a new instance bu using eval()"""
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
-
-if __name__ == "__main__":
     def __del__(self):
         """This instance deletes an instance of Rectangle"""
         print("Bye rectangle...")
-        del Rectangle

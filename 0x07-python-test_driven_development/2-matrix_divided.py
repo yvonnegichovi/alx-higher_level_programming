@@ -19,4 +19,7 @@ def matrix_divided(matrix, div):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    return [[round(float(i) / div, 2) for i in row] for row in matrix]
+    new_matrix = []
+    for i in matrix:
+        new_matrix.append(list(map(lambda row: round(row / div, 2), i)))
+    return new_matrix

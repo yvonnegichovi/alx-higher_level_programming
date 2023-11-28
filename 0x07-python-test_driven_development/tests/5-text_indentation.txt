@@ -1,0 +1,30 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("""Lorem elit.""")
+Lorem elit.
+<BLANKLINE>
+>>> text_indentation("""Quonam modo?""")
+Quonam modo?
+<BLANKLINE>
+>>> text_indentation("""Non autem hoc:""")
+Non autem hoc:
+<BLANKLINE>
+>>> text_indentation("""igitur.""")
+igitur.
+<BLANKLINE>
+>>> text_indentation("""6.""")
+6.
+<BLANKLINE>
+>>> text_indentation("""7?""")
+7?
+<BLANKLINE>
+>>> text_indentation("""8:""")
+8:
+<BLANKLINE>
+>>> text_indentation(6)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+>>> text_indentation()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'

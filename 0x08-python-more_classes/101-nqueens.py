@@ -8,9 +8,11 @@ import sys
 def is_safe(board, row, col, n):
     """It checks if there's a queen in the same column"""
     for i in range(row):
-        if board[i] == col or board[i] - i == col - row or board[i] + i == col + row:
+        if board[i] == col or board[i] - i == col - row \
+                or board[i] + i == col + row:
             return False
     return True
+
 
 def solve_nqueens(board, row, n, solutions):
     """The method solves the queens"""
@@ -22,11 +24,13 @@ def solve_nqueens(board, row, n, solutions):
             board[row] = col
             solve_nqueens(board, row + 1, n, solutions)
 
+
 def print_solutions(solutions):
     """This method prints the possible solutions"""
     for solution in solutions:
         print(solution)
     print()
+
 
 def main():
     """The main method that runs the program"""
@@ -45,6 +49,7 @@ def main():
     solutions = []
     solve_nqueens(board, 0, N, solutions)
     print_solutions(solutions)
+
 
 if __name__ == "__main__":
     main()

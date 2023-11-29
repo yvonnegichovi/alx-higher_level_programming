@@ -20,3 +20,9 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_empty_list(self):
         self.assertIsNone(max_integer([]))
+
+    def test_max_in_middle(self):
+        self.assertEqual(max_integer([1, 3, 7, 5, 2]), 7)
+
+    def test_one_element_list(self):
+        self.assertEqual(max_integer([42]), 42)

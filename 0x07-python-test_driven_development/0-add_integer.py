@@ -13,7 +13,9 @@ def add_integer(a, b=98):
     if type(b) not in (int, float):
         raise TypeError("b must be an integer")
     return int(a) + int(b)
-if __name__=="__main__":
+
+
+if __name__ == "__main__":
     a = input("Enter first: ")
     b = input("Enter second: ")
     result = add_integer(a, b)

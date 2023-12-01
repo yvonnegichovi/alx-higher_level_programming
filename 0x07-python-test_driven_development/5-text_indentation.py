@@ -7,14 +7,13 @@ def text_indentation(text):
     """This function that prints a text with 2 new lines
     after each of these characters: ., ? and :"""
     s = [".", "?", ":"]
-    current_line = ""
+    current_line = text.split()
     if type(text) is not str:
         raise TypeError("text must be a string")
-    for i in text:
-        current_line += i
-        if i in s:
-            print(current_line.strip())
-            print()
-            current_line = ""
-    if current_line:
-        print(current_line.strip())
+    for i in current_line:
+        print(i, end="")
+        if not (set(i) and s):
+            if not (i == current_line[-1]):
+                print(" ", end="")
+        if set(i) and s:
+            print("\n")

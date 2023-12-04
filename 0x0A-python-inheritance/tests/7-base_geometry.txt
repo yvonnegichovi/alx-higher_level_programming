@@ -27,12 +27,6 @@
 [ValueError] distance must be greater than 0
 
 >>> try:
-...     bg.integer_validator("age", Twenty)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] age must be an integer
-
->>> try:
 ...     bg.integer_validator("age", "8")
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))

@@ -22,3 +22,7 @@
 # Print the sorted list using the print_sorted method
 >>> my_list.print_sorted()
 [1, 2, 3, 4, 5]
+
+# The original list remains unchanged
+>>> print(my_list)
+[1, 4, 2, 3, 5]

@@ -10,6 +10,6 @@ class MyList(list):
         print(sorted(self))
 
 
-if __name__== "__main__":
+if __name__ == "__main__":
     import doctest
     doctest.testmod()

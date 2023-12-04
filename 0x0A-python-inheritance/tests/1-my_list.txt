@@ -7,7 +7,3 @@ TypeError: print_sorted() takes 1 positional argument but 5 were given
 Traceback (most recent call last):
 ...
 TypeError: print_sorted() missing 1 required positional argument: 'self'
->>> MyList.print_sorted("two")
-Traceback (most recent call last):
-...
-TypeError: print_sorted() takes 1 positional argument but 0 were given

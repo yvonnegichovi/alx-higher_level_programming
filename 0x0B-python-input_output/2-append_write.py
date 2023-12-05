@@ -6,6 +6,10 @@ def append_write(filename="", text=""):
     must use with statement to open the file
     must use encoding UTF8
     """
-    with open(filename, "a", encoding="UTF-8") as file:
-        text_added = file.write(text)
+    try:
+        with open(filename, "a", encoding="UTF-8") as file:
+            text_added = file.write(text)
+    except FileNotFoundError:
+        with open(filename, "w", encoding="UTF-8") as file:
+            text_added = file.write(text)
     return text_added

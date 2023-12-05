@@ -8,4 +8,4 @@ def append_write(filename="", text=""):
     """
     with open(filename, "a", encoding="UTF-8") as file:
         text_added = file.write(text)
-        return text_added
+    return text_added

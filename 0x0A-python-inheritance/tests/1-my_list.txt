@@ -26,3 +26,25 @@
 # The original list remains unchanged
 >>> print(my_list)
 [1, 4, 2, 3, 5]
+
+>>> no_list = MyList()
+>>> no_list
+[]
+
+>>> no_list.print_sorted()
+[]
+
+>>> new_list = MyList()
+>>> new_list
+[]
+
+#Append  itergers to the list
+>>> new_list.append(-1)
+>>> new_list.append(-4)
+>>> new_list.append(-2)
+>>> new_list.append(-3)
+>>> new_list.append(-5)
+
+# Print the sorted list using the print_sorted method
+>>> new_list.print_sorted()
+[-5, -4, -3, -2, -1]

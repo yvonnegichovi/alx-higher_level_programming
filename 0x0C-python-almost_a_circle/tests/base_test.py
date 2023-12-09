@@ -5,6 +5,7 @@
 
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
 
 
 class TestBase(unittest.TestCase):
@@ -32,3 +33,17 @@ class TestBase(unittest.TestCase):
         self.assertIsInstance(b2, Base)
         self.assertTrue(hasattr(b2, 'id'))
         self.assertEqual(b2.id, 12)
+
+    def test_rectangle_case(self):
+        r1 = Rectangle(10, 2, 0, 0, 12)
+        self.assertIsInstance(r1, Rectangle)
+        self.assertTrue(hasattr(r1, 'id'))
+        self.assertEqual(r1.id, 12)
+        self.assertTrue(hasattr(r1, 'width'))
+        self.assertEqual(r1.width, 10)
+        self.assertTrue(hasattr(r1, 'height'))
+        self.assertEqual(r1.height, 2)
+        self.assertTrue(hasattr(r1, 'x'))
+        self.assertEqual(r1.x, 0)
+        self.assertTrue(hasattr(r1, 'y'))
+        self.assertEqual(r1.y, 0)

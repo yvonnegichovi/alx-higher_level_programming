@@ -73,6 +73,14 @@ class TestRectangle_Validation(unittest.TestCase):
             Rectangle(10, 2, 3, -1)
         self.assertEqual(str(context.exception), "y must be >= 0")
 
+class TestRectangle_Area(unittest.TestCase):
+    def test_area(self):
+        r1 = Rectangle(3, 2)
+        self.assertEqual(r1.area(), 6)
+
+        r2 = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(r2.area(), 56)
+
 
 if __name__ == '__main__':
     unittest.main()

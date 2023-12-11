@@ -52,5 +52,22 @@ class TestBase(unittest.TestCase):
             Rectangle(10, "2")
         self.assertEqual(str(context.exception), "height must be an integer")
 
+    def test_invalid_width_value(self):
+        r = Rectangle(10, 2)
+        with self.assertRaises(ValueError) as context:
+            r.width = -10
+        self.assertEqual(str(context.exception), "width must be > 0")
+
+    def test_invalid_x_type(self):
+        r = Rectangle(10, 2)
+        with self.assertRaises(TypeError) as context:
+            r.x = {}
+        self.assertEqual(str(context.exception), "x must be an integer")
+
+    def test_invalid_y_value(self):
+        with self.assertRaises(ValueError) as context:
+            Rectangle(10, 2, 3, -1)
+        self.assertEqual(str(context.exception), "y must be >= 0")
+
 if __name__ == '__main__':
     unittest.main()

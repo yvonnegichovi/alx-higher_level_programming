@@ -19,7 +19,7 @@ class TestRectangle_Constructor(unittest.TestCase):
         r3 = Rectangle(10, 2, 0, 0, 12)
         self.assertEqual(r1.id, r2.id - 1)
 
-    def tset_custom_id_assignement(self):
+    def test_custom_id_assignement(self):
         r = Rectangle(10, 2, 0, 0, 12)
         self.assertEqual(12, r.id)
 

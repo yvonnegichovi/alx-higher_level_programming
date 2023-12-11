@@ -159,5 +159,30 @@ class TestRectangle_Update(unittest.TestCase):
         self.assertEqual(str(r1), "[Rectangle] (89) 4/5 - 2/3")
 
 
+class TestRectangle_To_Dictionary(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        Base.reset_nb_objects()
+
+    def test_to_dictionary(self):
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_dict = r1.to_dictionary()
+        expected_dict = {'x': 1, 'y': 9, 'id': r1.id, 'height': 2, 'width': 10}
+        self.assertEqual(r1_dict, expected_dict)
+
+    def test_update_from_dictionary(self):
+        r1 = Rectangle(1, 1)
+        r1_dict = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        r1.update(**r1_dict)
+        self.assertEqual(str(r1), "[Rectangle] (1) 1/9 - 10/2")
+
+    def test_equality_after_update(self):
+        r1 = Rectangle(10, 2, 1, 9)
+        r2 = Rectangle(1, 1)
+        r1_dict = r1.to_dictionary()
+        r2.update(**r1_dict)
+        self.assertFalse(r1 == r2)
+
+
 if __name__ == '__main__':
     unittest.main()

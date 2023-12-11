@@ -79,3 +79,28 @@ class TestSquare_Str(unittest.TestCase):
         print(s1)
         sys.stdout = sys.__stdout__
         self.assertEqual(captured_output.getvalue().strip(), "[Square] (1) 1/3 - 3")
+
+
+class TestSquare_update(unittest.TestCase):
+    def test_update_square_id(self):
+        s1 = Square(5)
+        s1.update(10)
+        self.assertEqual(str(s1), "[Square] (10) 0/0 - 5")
+
+    def test_update_square_size(self):
+        s1 = Square(5)
+        s1.update(1, 2)
+        self.assertEqual(str(s1), "[Square] (1) 0/0 - 2")
+
+    def test_update_square_x(self):
+        s1 = Square(5)
+        s1.update(1, 2, 3)
+        self.assertEqual(str(s1), "[Square] (1) 3/0 - 2")
+
+    def test_update_square_y(self):
+        s1 = Square(5)
+        s1.update(1, 2, 3, 4)
+        self.assertEqual(str(s1), "[Square] (1) 3/4 - 2")
+
+if __name__ == '__main__':
+    unittest.main()

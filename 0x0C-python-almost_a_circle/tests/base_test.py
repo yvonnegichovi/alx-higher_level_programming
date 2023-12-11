@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
-"""Unittest for class Base"""
+"""Unittest for base.py
+Unittest classes:
+    TestBase_Constructor - line 14
+    """
 
 import unittest
 import os
@@ -9,7 +12,7 @@ from models.rectangle import Rectangle
 from models.square import Square
 
 
-class TestBase(unittest.TestCase):
+class TestBase_Constructor(unittest.TestCase):
     def test_id_None(self):
         b1 = Base(None)
         b2 = Base(None)

@@ -34,6 +34,17 @@ class TestRectangle_Validation(unittest.TestCase):
             Rectangle(10, "2")
         self.assertEqual(str(context.exception), "height must be an integer")
 
+    def test_invalid_height_value(self):
+        r = Rectangle(10, 2)
+        with self.assertRaises(ValueError) as context:
+            r.height = -2
+        self.assertEqual(str(context.exception), "height must be > 0")
+
+    def test_invalid_width_type(self):
+        with self.assertRaises(TypeError) as context:
+            Rectangle("10", 2)
+        self.assertEqual(str(context.exception), "width must be an integer")
+
     def test_invalid_width_value(self):
         r = Rectangle(10, 2)
         with self.assertRaises(ValueError) as context:
@@ -45,6 +56,17 @@ class TestRectangle_Validation(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             r.x = {}
         self.assertEqual(str(context.exception), "x must be an integer")
+
+    def test_invalid_x_value(self):
+        with self.assertRaises(ValueError) as context:
+            Rectangle(10, 2, -3, 1)
+        self.assertEqual(str(context.exception), "x must be >= 0")
+
+    def test_invalid_y_type(self):
+        r = Rectangle(10, 2)
+        with self.assertRaises(TypeError) as context:
+            r.y = {}
+        self.assertEqual(str(context.exception), "y must be an integer")
 
     def test_invalid_y_value(self):
         with self.assertRaises(ValueError) as context:

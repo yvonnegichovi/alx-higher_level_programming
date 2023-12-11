@@ -47,3 +47,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r1.x, 0)
         self.assertTrue(hasattr(r1, 'y'))
         self.assertEqual(r1.y, 0)
+
+if __name__ == '__main__':
+    unittest.main()

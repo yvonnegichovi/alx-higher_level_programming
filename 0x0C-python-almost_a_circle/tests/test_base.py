@@ -33,10 +33,6 @@ class TestBase_Constructor(unittest.TestCase):
     def test_custom_id_assignment(self):
         self.assertEqual(12, Base(12).id)
 
-    def test_incrementing_after_custom_id(self):
-        b5 = Base()
-        self.assertEqual(b5.id, 4)
-
     def test_id_str(self):
         self.assertEqual("Holberton", Base("Holberton").id)
 

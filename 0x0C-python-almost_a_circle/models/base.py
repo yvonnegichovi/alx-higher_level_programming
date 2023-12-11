@@ -5,6 +5,8 @@ it mwnages id attribute in all the future classes and avoid duplicating
 the same code
 """
 
+import json
+
 
 class Base:
     """This class has a private attribute that counts the id"""
@@ -16,3 +18,11 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """Returns the JSON string representation of list_dictionaries"""
+        if list_dictionaries is None or len(list_dictionaries) == 0:
+            return []
+        else:
+            return json.dumps(list_dictionaries)

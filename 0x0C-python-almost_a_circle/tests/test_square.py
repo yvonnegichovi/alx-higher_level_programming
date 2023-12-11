@@ -45,3 +45,37 @@ class TestSquare_Validation(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             Square((1, 2, 3))
         self.assertEqual(str(context.exception), "width must be an integer")
+
+    def test_invalid_size_type_list(self):
+        with self.assertRaises(TypeError) as context:
+            Square([1, 2, 3])
+        self.assertEqual(str(context.exception), "width must be an integer")
+
+    def test_invalid_size_type_set(self):
+        with self.assertRaises(TypeError) as context:
+            Square({1, 2, 3})
+        self.assertEqual(str(context.exception), "width must be an integer")
+
+    def test_invalid_size_type_dict(self):
+        with self.assertRaises(TypeError) as context:
+            Square({"a": 0, "b": 1})
+        self.assertEqual(str(context.exception), "width must be an integer")
+
+    def test_invalid_width_value_square(self):
+        with self.assertRaises(ValueError) as context:
+            s = Square(-10)
+        self.assertEqual(str(context.exception), "width must be > 0")
+
+
+class TestSquare_Str(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        Base.reset_nb_objects() 
+
+    def test_square_str(self):
+        s1 = Square(3, 1, 3)
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        print(s1)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue().strip(), "[Square] (1) 1/3 - 3")

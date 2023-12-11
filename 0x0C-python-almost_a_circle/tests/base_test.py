@@ -2,7 +2,6 @@
 
 """Unittest for class Base"""
 
-
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -47,6 +46,11 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r1.x, 0)
         self.assertTrue(hasattr(r1, 'y'))
         self.assertEqual(r1.y, 0)
+
+    def test_invalid_height_type(self):
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, "2")
+        self.assertEqual(str(context.exception), "height must be an integer")
 
 if __name__ == '__main__':
     unittest.main()

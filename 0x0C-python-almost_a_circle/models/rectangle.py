@@ -36,7 +36,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """This getter method instance retrieves the private instance 
+        """This getter method instance retrieves the private instance
         of height"""
         return self.__height
 
@@ -90,7 +90,8 @@ class Rectangle(Base):
 
     def __str__(self):
         """returns str of the rectangle"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)
+        return "[Rectangle] ({}) {}/{} - {}/{}".format
+        (self.id, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
         """This method assigns an argument to each attribute"""
@@ -105,9 +106,9 @@ class Rectangle(Base):
     def to_dictionary(self):
         """This method returns the dixtionary representation of a Rectangle"""
         return {
-            'x' : self.x,
-            'y' : self.y,
-            'id' : self.id,
-            'height' : self.height,
-            'width' : self.width
+            'x': self.x,
+            'y': self.y,
+            'id': self.id,
+            'height': self.height,
+            'width': self.width
         }

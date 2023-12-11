@@ -132,5 +132,32 @@ class TestRectangle_Str(unittest.TestCase):
         self.assertEqual(captured_output.getvalue().strip(), "[Rectangle] (2) 1/0 - 5/5")
 
 
+class TestRectangle_Update(unittest.TestCase):
+    def test_update_id(self):
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89)
+        self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 10/10")
+
+    def test_update_width(self):
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89, 2)
+        self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 2/10")
+
+    def test_update_height(self):
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89, 2, 3)
+        self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 2/3")
+
+    def test_update_x(self):
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89, 2, 3, 4)
+        self.assertEqual(str(r1), "[Rectangle] (89) 4/10 - 2/3")
+
+    def test_update_y(self):
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89, 2, 3, 4, 5)
+        self.assertEqual(str(r1), "[Rectangle] (89) 4/5 - 2/3")
+
+
 if __name__ == '__main__':
     unittest.main()

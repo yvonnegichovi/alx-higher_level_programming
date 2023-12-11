@@ -81,6 +81,37 @@ class TestRectangle_Area(unittest.TestCase):
         r2 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r2.area(), 56)
 
+class TestRectangle_Height(unittest.TestCase):
+    def test_height_str(self):
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, "Holberton")
+        self.assertEqual(str(context.exception), "height must be an integer")
+
+    def test_height_float(self):
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, 2.0)
+        self.assertEqual(str(context.exception), "height must be an integer")
+
+    def test_height_tuple(self):
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, (1, 2, 3))
+        self.assertEqual(str(context.exception), "height must be an integer")
+
+    def test_height_list(self):
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, [1, 2, 3])
+        self.assertEqual(str(context.exception), "height must be an integer")
+
+    def test_height_set(self):
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, {1, 2, 3})
+        self.assertEqual(str(context.exception), "height must be an integer")
+
+    def test_height_dict(self):
+        with self.assertRaises(TypeError) as context:
+            Rectangle(10, {"a": 0, "b": 1})
+        self.assertEqual(str(context.exception), "height must be an integer")
+
 
 if __name__ == '__main__':
     unittest.main()

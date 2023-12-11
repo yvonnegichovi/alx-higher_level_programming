@@ -7,6 +7,8 @@ Unittest classes:
 
 import unittest
 import os
+import sys
+from io import StringIO
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -111,6 +113,23 @@ class TestRectangle_Height(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             Rectangle(10, {"a": 0, "b": 1})
         self.assertEqual(str(context.exception), "height must be an integer")
+
+
+class TestRectangle_Str(unittest.TestCase):
+    def test_str(self):
+        r1 = Rectangle(4, 6, 2, 1, 1)
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        print(r1)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue().strip(), "[Rectangle] (1) 2/1 - 4/6")
+
+        r2 = Rectangle(5, 5, 1, id=2)
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        print(r2)
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue().strip(), "[Rectangle] (2) 1/0 - 5/5")
 
 
 if __name__ == '__main__':

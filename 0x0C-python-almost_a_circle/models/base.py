@@ -74,4 +74,4 @@ class Base:
                 dictionaries = cls.from_json_string(json_string)
                 return [cls.create(**d) for d in dictionaries]
         except FileNotFoundError:
-           return []
+            return []

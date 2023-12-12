@@ -201,7 +201,7 @@ class TestRectangle_To_Dictionary(unittest.TestCase):
         r2 = Rectangle(1, 1)
         r1_dict = r1.to_dictionary()
         r2.update(**r1_dict)
-        self.assertFalse(r1 == r2)
+        self.assertTrue(r1 == r2)
 
 
 class TestRectangle_Display_Method(unittest.TestCase):

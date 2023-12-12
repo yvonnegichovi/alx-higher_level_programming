@@ -112,3 +112,9 @@ class Rectangle(Base):
             'height': self.height,
             'width': self.width
         }
+
+    def __eq__(self, other):
+        """Compares attributes"""
+        if not isinstance(other, Rectangle):
+            return False
+        return all(getattr(self, attr) == getattr(other, attr) for attr in ['id', 'width', 'height', 'x', 'y'])

@@ -89,6 +89,11 @@ class TestRectangle_Create_Method(unittest.TestCase):
         self.assertIsNot(r1, r2)
         self.assertEqual(r1, r2)
 
+    def test_create_with_id(self):
+        rectangle_dict = {'id': 89}
+        new_rectangle = Rectangle.create(**rectangle_dict)
+        self.assertEqual(new_rectangle.id, 89)
+
 
 class TestRectangle_Save_to_File(unittest.TestCase):
     @classmethod

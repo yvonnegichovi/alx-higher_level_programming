@@ -90,5 +90,20 @@ class TestRectangle_Create_Method(unittest.TestCase):
         self.assertNotEqual(r1, r2)
 
 
+class TestRectangle_Save_to_File(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        Base.reset_nb_objects()
+
+    def test_save_to_file_method(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+        self.assertTrue(os.path.exists("Rectangle.json"))
+        with open("Rectangle.json", "r") as file:
+            file_content = file.read()
+        self.assertEqual(file_content, '[{"x": 2, "y": 8, "id": 1, "height": 7, "width": 10}, {"x": 0, "y": 0, "id": 2, "height": 4, "width": 2}]')
+
+
 if __name__ == '__main__':
     unittest.main()

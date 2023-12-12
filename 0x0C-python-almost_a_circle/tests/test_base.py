@@ -94,6 +94,12 @@ class TestRectangle_Create_Method(unittest.TestCase):
         new_rectangle = Rectangle.create(**rectangle_dict)
         self.assertEqual(new_rectangle.id, 89)
 
+    def test_create_with_width_id(self):
+        rectangle_dict = {'id': 89, 'width': 1 }
+        new_rectangle = Rectangle.create(**rectangle_dict)
+        self.assertEqual(new_rectangle.id, 89)
+        self.assertEqual(new_rectangle.width, 1)
+
 
 class TestRectangle_Save_to_File(unittest.TestCase):
     @classmethod

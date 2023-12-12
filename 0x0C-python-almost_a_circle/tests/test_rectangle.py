@@ -204,5 +204,40 @@ class TestRectangle_To_Dictionary(unittest.TestCase):
         self.assertFalse(r1 == r2)
 
 
+class TestRectangle_Display_Method(unittest.TestCase):
+    def test_display_method(self):
+        original_stdout = sys.stdout
+        sys.stdout = StringIO()
+        try:
+            r1 = Rectangle(4, 6)
+            r1.display()
+            printed_content = sys.stdout.getvalue()
+            self.assertEqual(printed_content, "####\n####\n####\n####\n####\n####\n")
+            sys.stdout = StringIO()
+            r2 = Rectangle(2, 2)
+            r2.display()
+            printed_content = sys.stdout.getvalue()
+            self.assertEqual(printed_content, "##\n##\n")
+        finally:
+            sys.stdout = original_stdout
+
+    def test_display_method_with_xy(self):
+        original_stdout = sys.stdout
+        sys.stdout = StringIO()
+        try:
+            r1 = Rectangle(2, 3, 2, 2)
+            r1.display()
+            printed_content = sys.stdout.getvalue()
+            self.assertEqual(printed_content, "\n\n  ##\n  ##\n  ##\n")
+            sys.stdout = StringIO()
+
+            r2 = Rectangle(3, 2, 1, 0)
+            r2.display()
+            printed_content = sys.stdout.getvalue()
+            self.assertEqual(printed_content, " ###\n ###\n")
+        finally:
+            sys.stdout = original_stdout
+
+
 if __name__ == '__main__':
     unittest.main()

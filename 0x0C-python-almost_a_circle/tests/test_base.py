@@ -72,12 +72,12 @@ class TestBase_ToJsonString(unittest.TestCase):
 
     def test_to_json_string_empty_list(self):
         json_string = Base.to_json_string([])
-        expected_json_string = []
+        expected_json_string = "[]"
         self.assertEqual(json_string, expected_json_string)
 
     def test_to_json_string_none_list(self):
         json_string = Base.to_json_string(None)
-        expected_json_string = []
+        expected_json_string = "[]"
         self.assertEqual(json_string, expected_json_string)
 
 

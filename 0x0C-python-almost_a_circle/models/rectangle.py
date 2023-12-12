@@ -117,4 +117,5 @@ class Rectangle(Base):
         """Compares attributes"""
         if not isinstance(other, Rectangle):
             return False
-        return all(getattr(self, attr) == getattr(other, attr) for attr in ['id', 'width', 'height', 'x', 'y'])
+        return all(getattr(self, attr) == getattr(
+            other, attr) for attr in ['id', 'width', 'height', 'x', 'y'])

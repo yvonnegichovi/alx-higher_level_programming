@@ -53,4 +53,5 @@ class Square(Rectangle):
         """Compares attributes"""
         if not isinstance(other, Square):
             return False
-        return all(getattr(self, attr) == getattr(other, attr) for attr in ['id', 'size', 'x', 'y'])
+        return all(getattr(self, attr) == getattr(
+            other, attr) for attr in ['id', 'size', 'x', 'y'])

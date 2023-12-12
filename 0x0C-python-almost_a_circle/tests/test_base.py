@@ -111,9 +111,9 @@ class TestBase_Load_File_Method(unittest.TestCase):
         self.square_filename = "Square.json"
 
     def tearDown(self):
-        if os.path.exist(self.rect_filename):
+        if os.path.exists(self.rect_filename):
             os.remove(self.rect_filename)
-        if os.path.exist(self.square_filename):
+        if os.path.exists(self.square_filename):
             os.remove(self.square_filename)
 
     def test_load_from_file_method_rectangle(self):

@@ -103,17 +103,47 @@ class TestRectangle_Create_Method(unittest.TestCase):
 
 class TestRectangle_Save_to_File(unittest.TestCase):
     @classmethod
-    def setUpClass(cls):
-        Base.reset_nb_objects()
+    def setUpClass(self):
+        self.rect_filename = "temp_rectangle.json"
+
+    def tearDown(self):
+        if os.path.exists(self.rect_filename):
+            os.remove(self.rect_filename)
 
     def test_save_to_file_method(self):
-        r1 = Rectangle(10, 7, 2, 8)
-        r2 = Rectangle(2, 4)
+        r1 = Rectangle(10, 7, 2, 8, 1)
+        r2 = Rectangle(2, 4, 0, 0, 2)
         Rectangle.save_to_file([r1, r2])
         self.assertTrue(os.path.exists("Rectangle.json"))
         with open("Rectangle.json", "r") as file:
             file_content = file.read()
-        self.assertEqual(file_content, '[{"x": 2, "y": 8, "id": 1, "height": 7, "width": 10}, {"x": 0, "y": 0, "id": 2, "height": 4, "width": 2}]')
+            expected_content = '[{"x": 2, "y": 8, "id": 1, "height": 7, "width": 10}, {"x": 0, "y": 0, "id": 2, "height": 4, "width": 2}]'
+            self.assertEqual(file_content, expected_content)
+
+
+class TestBaseFromJsonString(unittest.TestCase):
+    def test_from_json_string_valid_json(self):
+        json_string = '[{"id": 89, "width": 10, "height": 4}, {"id": 7, "width": 1, "height": 7}]'
+        result = Rectangle.from_json_string(json_string)
+        expected_result = [{'id': 89, 'width': 10, 'height': 4}, {'id': 7, 'width': 1, 'height': 7}]
+        self.assertEqual(result, expected_result)
+
+    def test_from_json_string_empty_json(self):
+        json_string = '[]'
+        result = Rectangle.from_json_string(json_string)
+        expected_result = []
+        self.assertEqual(result, expected_result)
+
+    def test_from_json_string_none(self):
+        json_string = None
+        result = Rectangle.from_json_string(json_string)
+        expected_result = []
+        self.assertEqual(result, expected_result)
+
+    def test_from_json_string_invalid_json(self):
+        json_string = 'invalid_json'
+        with self.assertRaises(ValueError):
+            Rectangle.from_json_string(json_string)
 
 
 class TestBase_Load_File_Method(unittest.TestCase):

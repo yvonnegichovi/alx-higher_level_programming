@@ -81,5 +81,14 @@ class TestBase_ToJsonString(unittest.TestCase):
         self.assertEqual(json_string, expected_json_string)
 
 
+class TestRectangle_Create_Method(unittest.TestCase):
+    def test_create_method(self):
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertIsNot(r1, r2)
+        self.assertNotEqual(r1, r2)
+
+
 if __name__ == '__main__':
     unittest.main()

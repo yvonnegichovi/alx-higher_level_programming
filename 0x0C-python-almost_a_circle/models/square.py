@@ -3,6 +3,7 @@
 """This module writes class Square and inherits from Rectangle"""
 
 from models.rectangle import Rectangle
+import csv
 
 
 class Square(Rectangle):

@@ -4,6 +4,7 @@
 It inherits from class Base"""
 
 from models.base import Base
+import csv
 
 
 class Rectangle(Base):

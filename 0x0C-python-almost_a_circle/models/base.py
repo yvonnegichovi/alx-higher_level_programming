@@ -6,6 +6,9 @@ the same code
 """
 
 import json
+import csv
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class Base:
@@ -74,3 +77,42 @@ class Base:
                 return [cls.create(**d) for d in dictionaries]
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Class method that writes the CSV string rep of list_objs to a file
+        """
+        from models.rectangle import Rectangle
+        from models.square import Square
+
+        if list_objs is None:
+            list_objs = []
+        filename = "{}.csv".format(cls.__name__)
+        with open(filename, "w", newline='') as file:
+            csv_writer = csv.writer(file)
+            for obj in list_objs:
+                if isinstance(obj, Rectangle):
+                    csv_writer.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+                elif isinstance(obj, Square):
+                    csv_writer.writerow([obj.id, obj.size, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """returns a list of instances"""
+        from models.rectangle import Rectangle
+        from models.square import Square
+
+        filename = "{}.csv".format(cls.__name__)
+        instances = []
+        try:
+            with open(filename, "r", newline='') as file:
+                csv_reader = csv.reader(file)
+                for row in csv_reader:
+                    if cls.__name__ == "Rectangle":
+                        instance = cls(int(row[0]), int(row[1]), int(row[2]), int(row[3]), int(row[4]))
+                    elif cls.__name__ == "Square":
+                        instance = cls(int(row[0]), int(row[1]), int(row[2]), int(row[3]))
+                    instances.append(instance)
+        except FileNotFoundError:
+            pass
+        return instances

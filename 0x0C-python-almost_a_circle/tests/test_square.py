@@ -102,5 +102,31 @@ class TestSquare_update(unittest.TestCase):
         s1.update(1, 2, 3, 4)
         self.assertEqual(str(s1), "[Square] (1) 3/4 - 2")
 
+
+class TestSquare_To_Dictionary(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        Base.reset_nb_objects()
+
+    def test_to_dictionary_square(self):
+        s1 = Square(10, 2, 1)
+        s1_dict = s1.to_dictionary()
+        expected_dict = {'id': s1.id, 'x': 2, 'size': 10, 'y': 1}
+        self.assertEqual(s1_dict, expected_dict)
+
+    def test_update_from_dictionary_square(self):
+        s1 = Square(1, 1)
+        s1_dict = {'id': 1, 'x': 2, 'size': 10, 'y': 1}
+        s1.update(**s1_dict)
+        self.assertEqual(str(s1), "[Square] (1) 2/1 - 10")
+
+    def test_equality_after_update_square(self):
+        s1 = Square(10, 2, 1)
+        s2 = Square(1, 1)
+        s1_dict = s1.to_dictionary()
+        s2.update(**s1_dict)
+        self.assertFalse(s1 == s2)
+
+
 if __name__ == '__main__':
     unittest.main()

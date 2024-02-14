@@ -8,14 +8,15 @@ class Rectangle {
       Object.create(null);
     }
   }
-  print() {
+
+  print () {
     if (!this.width || !this.height) {
-	    return;
+      return;
     }
     for (let i = 0; i < this.height; i++) {
       console.log('X'.repeat(this.width));
     }
-  }    
-};
+  }
+}
 
 module.exports = Rectangle;

@@ -18,6 +18,10 @@ class Rectangle {
     }
   }
 
+  calculateArea() {
+    return this.width * this.height;
+  }
+
   rotate () {
     const temp = this.width;
     this.width = this.height;
@@ -31,7 +35,6 @@ class Rectangle {
 }
 
 class Square extends Rectangle {
-
   constructor (size) {
     super(size, size);
   }

@@ -91,7 +91,4 @@ $ sudo pip3 install SQLAlchemy
 Credits
 This project was developed by Guillaume as part of the ALX Software Engineering Program.
 
-© 2024 Guillaume. All Rights Reserved.
-
-
 This README.md file provides an overview of the project, its learning objectives, requirements, tasks, resources, repository structure, usage instructions, environment setup, and credits. It serves as a comprehensive guide for anyone working on or reviewing the project.

@@ -16,7 +16,7 @@ if __name__ == "__main__":
         db=sys.argv[3]
     )
     cur = db.cursor()
-    cur.execute("""SELECT DISTINCT * FROM states WHERE name = '{}'
+    cur.execute("""SELECT * FROM states WHERE name LIKE '{}%'
                 ORDER BY states.id ASC""".format(sys.argv[4]))
     states = cur.fetchall()
     for state in states:

@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 
-"""This module lists all cities from the database hbtn_0e_0_usa"""
+"""This module lists all states starting with N
+from the database hbtn_0e_0_usa"""
 
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    """lists all cities"""
+    """filters a lists of all states"""
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -15,9 +16,19 @@ if __name__ == "__main__":
         db=sys.argv[3]
     )
     cur = db.cursor()
-    cur.execute("SELECT * FROM cities ORDER BY cities.id ASC")
-    states = cur.fetchall()
-    for state in states:
-        print(state)
-    cur.close()
-    db.close()
+    query = ("""
+    SELECT cities.id, cities.name, states.name
+    FROM cities
+    JOIN states ON cities.state_id = states.id
+    ORDER BY cities.id ASC
+    """)
+    try:
+        cur.execute(query)
+        cities = cur.fetchall()
+        for city in cities:
+            print(city)
+    except MySQLdb.Error as e:
+        print("MySQL Error {}: {}".format(e.args[0], e.args[1]))
+    finally:
+        cur.close()
+        db.close()

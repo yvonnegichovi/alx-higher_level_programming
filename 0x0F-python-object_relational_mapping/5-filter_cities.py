@@ -17,18 +17,19 @@ if __name__ == "__main__":
     )
     cur = db.cursor()
     query = ("""
-    SELECT GROUP_CONCAT(name SEPARATOR ', ')
+    SELECT GROUP_CONCAT(cities.name SEPARATOR ', ')
     FROM cities
-    WHERE state_id = (
-        SELECT id FROM states WHERE name = %s LIMIT 1
-    )
+    INNER JOIN states ON states.id=cities.state_id
+    WHERE states.name = %s
     ORDER BY cities.id ASC
     """)
     try:
         cur.execute(query, (sys.argv[4],))
-        result = cur.fetchone()
+        result = cur.fetchone()[0]
         if result:
-            print(result[0])
+            print(result)
+        else:
+            print("")
     except MySQLdb.Error as e:
         print("MySQL Error {}: {}".format(e.args[0], e.args[1]))
     finally:

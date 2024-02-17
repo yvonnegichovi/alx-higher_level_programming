@@ -18,7 +18,7 @@ class State(Base):
     linke to the MYYSQL table states
     """
     __tablename__ = 'states'
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)
 
 if __name__ == "__main__":

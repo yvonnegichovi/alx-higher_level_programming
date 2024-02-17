@@ -6,7 +6,7 @@ Base = declarative_base()
 """
 
 import sys
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -15,7 +15,7 @@ Base = declarative_base()
 class State(Base):
     """
     inherits frrom Base
-    linke to the MYYSQL table states
+    linke to the MYSQL table states
     """
     __tablename__ = 'states'
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)

@@ -19,7 +19,7 @@ if __name__ == "__main__":
     session = Session()
     """Query all State objects and sort by states.id"""
     state_name = sys.argv[4]
-    state = session.query(State).filter(State.name == state_name).first()
+    state = session.query(State).filter(State.name == (state_name,)).first()
     """Print the results"""
     if state:
         print(state.id)

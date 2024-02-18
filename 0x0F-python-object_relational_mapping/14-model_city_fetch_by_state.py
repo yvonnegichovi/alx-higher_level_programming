@@ -21,7 +21,7 @@ if __name__ == "__main__":
     session = Session()
     """Query all Cities objects and sort by cities.id"""
     cities = session.query(State, City).filter(State.id == City.state_id)\
-                        .order_by(City.id).all()
+                    .order_by(City.id).all()
     """Prints the results"""
     for state, city in cities:
         print("{}: ({}) {}".format(state.name, city.id, city.name))

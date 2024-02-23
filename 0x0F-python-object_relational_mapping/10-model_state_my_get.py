@@ -13,6 +13,7 @@ if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
+    Base.metadata.create_all(engine)
     """Create a configered'Session' class"""
     Session = sessionmaker(bind=engine)
     """Create a Session"""
@@ -21,7 +22,7 @@ if __name__ == "__main__":
     state_name = sys.argv[4]
     state = session.query(State).filter(State.name == (state_name,)).first()
     """Print the results"""
-    if state:
+    if state is not None:
         print(state.id)
     else:
         print("Not Found")

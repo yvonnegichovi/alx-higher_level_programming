@@ -4,11 +4,13 @@
 
 def find_peak(list_of_integers):
     """Prototype for this sorting"""
-    if len(list_of_integers) is 0:
+    if not list_of_integers:
         return None
-    else:
-        max = list_of_integers[0]
-        for i in list_of_integers:
-            if max < list_of_integers[i]:
-                list_of_integers[i] = max
-            return max
+    left, right = 0, len(list_of_integers) - 1
+    while left < right:
+        mid = (left + right) // 2
+        if list_of_integers[mid] < list_of_integers[mid + 1]:
+            left = mid + 1
+        else:
+            right = mid
+    return list_of_integers[left]

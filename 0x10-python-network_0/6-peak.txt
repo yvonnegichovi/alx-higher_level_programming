@@ -1,2 +1,2 @@
 # Complexity
-O(n)
+O(log(n))

@@ -11,4 +11,4 @@ if __name__ == "__main__":
     email = sys.argv[2]
     payload = {'email': email}
     body = requests.post(url, data=payload)
-    print("Your email is:", email)
+    print(body.text)

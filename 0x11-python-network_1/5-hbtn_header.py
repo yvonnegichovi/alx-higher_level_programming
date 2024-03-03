@@ -9,4 +9,3 @@ if __name__ == "__main__":
     body = requests.get(url)
     x_request_id = body.headers.get('X-Request-Id')
     print(x_request_id)
-
